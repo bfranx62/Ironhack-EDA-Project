@@ -49,35 +49,35 @@ To answer this question client ages must be analyzed, sorting the ages to age ra
 
 ## Categorical Values 
 
-variation with process steps as hue
+Variation with process steps as hue:
 
 <img width="446" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/c1a7e209-bdb0-42f5-b023-f9c787b79cae">
 
-Gender Frequency Table
+Gender Frequency Table:
 
 <img width="428" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/6577e29a-1c34-4513-a42d-f83260cfd98f">
 
-Histogram of client's age
+Histogram of client's age:
 
 <img width="443" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/912d7279-8541-40c2-8e32-51ee95991788">
 
-Box plot of client's Age
+Box plot of client's Age:
 
 <img width="427" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/25c45b68-db45-44c4-9b0b-827b5841415e">
 
-histoplot of client tenure year 
+histo plot of client tenure year: 
 
 <img width="440" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/9e17516c-ada9-49d5-818c-5f5375d1d2fe">
 
-boxplot of of client tenure year
+Box plot of client tenure year:
 
 <img width="408" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/7df9d8e8-3416-49d4-b14b-896ae4244193">
 
-histoplot of client tenure month 
+histo plot of client tenure month: 
 
 <img width="445" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/fd1f5673-d820-49a9-83ba-b999b4b28c3f">
 
-boxplot of client tenure month
+Box plot of client tenure month:
 
 <img width="416" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/1b8160f7-00fd-4838-80f2-905ca2d429ba">
 
@@ -99,7 +99,7 @@ Just looking at the proportions, we see that 45.77% of clients in the test group
 
 In order to test whether these results are statistically significant, we will run a chi-square test, which will use the control group's rate of reaching the confirmation step as the expected value, and test whether or not the differing results in the test group could be attributed to random chance. 
 
-In this case, our hypotheses are as follows:
+#### In this case, our hypotheses are as follows:
 
 - H0: There is no difference in the confirmation rates between the control group and the test group.
 - HA: There is a difference in the confirmation rates between the groups. 
