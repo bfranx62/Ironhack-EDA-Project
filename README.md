@@ -37,7 +37,7 @@ This was determined by looking at the means and standard deviations.
 
 To answer this question client ages must be analyzed, sorting the ages to age ranges will help to answer these questions.
 
-<img width="190" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/6cdd7849-0c42-40eb-a868-d221583901f2">
+<img width="188" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/6cdd7849-0c42-40eb-a868-d221583901f2">
 
 <img width="398" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/c2a2fc3e-afe7-4fbe-85a9-a76c5e59ad42">
 
