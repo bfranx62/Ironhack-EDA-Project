@@ -87,24 +87,22 @@ Box plot of client tenure month:
 
 One of the main KPIs we decided to investigate was whether or not a statistically significant greater number of clients were able to finish the entire website process in the test or control group. If more people in the control group are able to complete the process in the test group, then the new version of the website should be maintained if completion of the process is desirable. 
 
-As we examined the data we found that many Vanguard clients visited the site and/or worked through the process multiple times. Because of that, we decided to group the visits by visit ID, so we could see the number of *visits* in which a client made it to a certain step. We also wanted to know how far clients progressed through the website process in each visit, so we created a subset that only contains the most recent step a client was on by visit id. In doing so, we have controlled for instances in which a process is confirmed multiple times despite a client only reaching that step once.
+As we examined the data we found that many Vanguard clients visited the site and/or worked through the process multiple times. Because of that, we decided to group the visits by visit ID, so we could see the number of *visits* in which a client made it to a certain step. We also wanted to know how far clients progressed through the website process in each visit, so we created a subset that only contains the most recent step a client was on by visit id. In doing so, we have instances in which a process is confirmed multiple times despite a client only reaching that step once.
 
 <img width="449" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/fddef646-7784-42d6-9fb6-d5010e18e96d">
 
 A brief comparison of the results seems to indicate that more clients are able to move from step 3 to confirmation but we want to know if those results are statistically significant or just happenstance. 
 
-In both categories, we had a total of 41,415 clients reached the confirmation step. 
-
-Just looking at the proportions, we see that 45.77% of clients in the test group made it to the confirmation stage, whereas only 36.92% of the control group made it that far. 
+In both categories, we had a total of 41,415 clients reached the confirmation step. By just looking at the proportions, we see that 45.77% of clients in the test group made it to the confirmation stage, whereas only 36.92% of the control group made it that far. 
 
 In order to test whether these results are statistically significant, we will run a chi-square test, which will use the control group's rate of reaching the confirmation step as the expected value, and test whether or not the differing results in the test group could be attributed to random chance. 
 
 #### In this case, our hypotheses are as follows:
 
-- H0: There is no difference in the confirmation rates between the control group and the test group.
+- H0: There is no difference in the confirmation rates between the control and test groups.
 - HA: There is a difference in the confirmation rates between the groups. 
 
-Basically, our null hypothesis is that the changes made to the website were irrelevant, and the differing confirmation rate is just coincidental. Our alternative hypothesis is that the changes made a difference in the confirmation rate. 
+Our null hypothesis is that the changes made to the website were irrelevant, and the differing confirmation rate is just coincidental. Our alternative hypothesis is that the changes made a difference in the confirmation rate. 
 
 Because the p_value is so low, that H0 gotta go. In other words, the p_value indicates that there is virtually no possibility that the differing confirmation rate can be attributed to random chance, so we are forced to conclude that the changes made to the website did statistically impact the rate at which customers complete the online process. If this is desirable, the changes made should be incorporated for all customer interactions going forward. 
 
@@ -114,15 +112,13 @@ The next KPI we decided to test was bounce rate, which is the frequency with whi
 
 Knowing whether there is a difference in bounce rates between the original site setup and the setup being tested will help us know whether the setup being tested works more efficiently at moving customers through the online process. If the process being tested is more effective in that way, it should be continued. 
 
-To test that difference, we will run another chi-square test to examine the difference (and its statistical significance) between the test and control group. 
-
-In order to do that, we first need to get a list of clients/visitors who never progressed past the initial phase of the online process.
+To test that difference, we will run another chi-square test to examine the difference (and its statistical significance) between the test and control group. In order to do that, we first need to get a list of clients/visitors who never progressed past the initial phase of the online process.
 
 After collecting a list of visit IDs in which the visitor "bounced," we can use that list to create a new column in our data frame marking those visits that resulted in a "bounce." This indicator column will be treated as a boolean and tested against visit variation, which indicates whether a client was experiencing the test or control process in that visit.  
 
 By just looking at the value counts, we see that about 1/6th, or 12.5% of visits resulted in a bounce, which is fairly alarming. 
 
-When comparing the proportion of bounces in the control versus the test group, we see that the control group experienced a bounce roughly 24% of the time, where the test group only experienced bounces 14% of the time. That's a sizeable difference. 
+When comparing the proportion of bounces in the control versus the test group, we see that the control group experienced a bounce roughly 24% of the time, whereas the test group only experienced bounces 14% of the time. That's a sizeable difference. 
 
 After running a chi-square test, we see that the p-value is incredibly low, leading us to reject our null hypothesis again and conclude that the changes made and tested by the test group have a noticeable and statistically significant impact on bounce rate. If a lower bounce rate is desirable, the updated process should probably replace the current one. 
 
@@ -130,12 +126,37 @@ After running a chi-square test, we see that the p-value is incredibly low, lead
 
 This KPI compares whether clients in one of the groups abandoned the process at any steps besides the initial more frequently and whether there is a statistically significant difference in drop-off rates between the test and control groups. If the drop-off rate is higher in the test group, it could signal that the changes made to the process have not simplified the process.
 
-By starting with sorting the data frame, we can more simply pull out the information we need. The cell below sorts the data frame by client id, visit id, and datetime, all ascending. 
+By starting with sorting the data frame, we can more simply pull out the information we need. The cell below sorts the data frame by client ID, visit ID, and date-time, all ascending. 
 
 After sorting the data, we identify the unique process steps that each client reached. Any client that did not make it to the confirm step at least once will be considered a "dropper."
 
-The code above tells us how many clients in each group reached each step at least once. As one would expect, in each group we see that the start group is the largest, and then fewer and fewer clients made it to each succeeding step. The confirm values show how many clients in either group ever made it to the confirm step. The difference between the start and confirm steps in each group tells us how many clients in each group should be considered "droppers." There were 7,732 clients in the control group who never made it to the confirmation step, and there were 7,827 clients in the test group who didn't. That isn't a large difference, but in order to know if it's significant, we need to test for it. 
+The code above tells us how many clients in each group reached each step at least once. As one would expect, in each group we see that the start group is the largest, and then fewer and fewer clients made it to each succeeding step. The confirm values show how many clients in either group ever made it to the confirm step. The difference between the start and confirm steps in each group tells us how many clients in each group should be considered "droppers." There were 7,732 clients in the control group who never made it to the confirmation step, and there were 7,827 clients in the test group who didn't. That isn't a large difference, but to know if it's significant, we need to test for it. 
 
 Based on this chi-square test, we fail to reject our null hypothesis and conclude that, when it comes to drop-off rates by step, there is no difference between the test group and the control group. Therefore, while the test we ran above shows that there is a significantly different rate of completion in the test group, no individual step's drop-off rate was significantly impacted by the changes made. 
 
-However, using the drop-off rate, we can continue on to test whether or not age, tenure, gender, or any other demographic factors affect or impact the drop-off rate, either in general or in relation to each step. 
+However, using the drop-off rate, we can continue to test whether or not age, tenure, gender, or any other demographic factors affect or impact the drop-off rate, either in general or with each step. 
+
+# Balance
+
+We start by testing whether one Gender trends to carry a higher balance than the other. 
+
+#### Hypothesis 
+- H0: mu_bal male = mu_bal female
+- H1: mu_bal male != mu_bal female
+
+First, we run a Levene test to test equal variance. We got a low p-value
+
+<img width="440" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/65853169-8f39-4fb6-bb73-ffebd2e632f4">
+
+# MAJOR OBSTACLES 
+
+## CHI Square Test Function Problems
+
+When doing Chi2 tables we had an issue with displaying the chart for c_tenure_drp_ct with our function. it would display the charts for the other charts but not the control data. To combat this a manual chi2 analysis was done on the group
+
+### The Solution
+
+<img width="290" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/3747ab1d-fd71-4d87-bd07-4ef218c42c27">
+
+
+
