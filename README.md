@@ -1,5 +1,9 @@
-# Vanguard CX Digital Experiment Analysis
-by Alejandro Figueroa, Bryan Frank, Dylan Sedeno
+# Vanguard A/B Testing EDA Project
+by The Cubers Group
+
+- Alejandro Figueroa
+- Bryan Frank
+- Dylan Sedeno
 
 ## Project Overview
 
