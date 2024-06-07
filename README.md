@@ -32,23 +32,49 @@ In this project, we aim to analyze the impact of UI improvements and in-context 
 
 ## Data Description
 
-Describe the dataset used in the analysis, including:
+The three main datasets used for the project were:
+  - Client Profiles (df_final_demo): Contains demographic data on Vanguard clients
+  - Digital Footprints (df_final_web_data): Trace of client interactions with Vanguard’s online process. 
+  - Experiment Roster (df_final_experiments_clients): List that reveals the clients that were part of the grand experiment.
 
-- Source of data
-- Data fields
-- Any preprocessing steps taken
 
 ## Analysis
 
-Explain the steps taken during the analysis, such as:
+The data cleaning process was straightforward and comprised of the following tasks:
+  - Disregarded clients who did not participate in the experiment by dropping nulls in the client profiles dataframe.
+  - Removed outliers for better data visualization and analysis for client balance information.
+  - Dropped unnecessary columns, renamed columns, and maintained naming conventions. 
+  - Performed merging between:
+    - Client Profiles and Digital Footprints on Client ID column (demographic analysis)
+    - Experiment Roster and Digital Footprints on Client ID column (KPI analysis)
+   
+Our target KPI’s were:
+  - Completion Rate
+  - Bounce Rate: Frequency with which clients failed to progress past the initial step in the online process.
+  - Drop Rate: Indicates whether clients forfeited the online process prior to reaching the final confirmation step.
 
-- Data wrangling and cleaning
-- Exploratory data analysis (EDA)
-- Statistical tests or models used
+In addition, we wanted to analyze how specific variables affect the drop rate such as:
+  - The number of calls made in the last six months 
+  - Client tenure
+  - Client investment balance
+    
+Finally, we were interested in the gender wage gap discourse, so we opted to investigate if gender affects the investment balance.
+
 
 ## Results
 
-Summarize the key findings from the analysis, highlighting whether the UI changes and in-context prompts had a significant impact on client completion rates.
+From testing completion, bounce, and drop rates we see that:
+  - The Test group completed the process more than control
+  - Test group had the lower bounce rate 
+  - And there was was no difference when it came to drop rate
+
+With the Chi squared test we gained the following insights.
+  - Test group clients having longer tenure with the company had a noticeable raise in completion 
+  - Changes made allowed clients who called support at least once to complete the online process 
+  - The two-sample t-test showed that:
+  - Male clients have more invested than any other client 
+  - And that clients that did not drop have more invested in general
+
 
 ## Tableau Public Workbook
 
