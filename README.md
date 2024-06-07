@@ -80,7 +80,7 @@ With the Chi squared test we gained the following insights.
 
 The interactive visualizations created for this analysis can be accessed on Tableau Public. These visualizations provide detailed insights into the experiment's results.
 
-[View the Tableau Public Workbook](https://public.tableau.com/profile/your_username#!/vizhome/your_workbook](https://public.tableau.com/views/Ironhack-EDA-Project/Story1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
+[View the Tableau Public Workbook](Post_Tableau_Link_Here)
 
 ## Google Slides Presentation
 
