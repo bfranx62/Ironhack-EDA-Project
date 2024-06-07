@@ -27,8 +27,6 @@ The experiment involved modifying the UI and introducing in-context prompts to o
 4. [Results](#results)
 5. [Tableau Public Workbook](#tableau-public-workbook)
 6. [Google Slides Presentation](#google-slides-presentation)
-7. [Conclusion](#conclusion)
-8. [References](#references)
 
 ## Introduction
 
@@ -92,10 +90,4 @@ A comprehensive presentation summarizing the project, methodology, findings, and
 
 [View the Google Slides Presentation](https://docs.google.com/presentation/d/1NTZg2U_izvyAM4VOe43xKWZlGpBYQjS60Ru1KHkG1Ic/edit?usp=sharing)
 
-## Conclusion
 
-Conclude the analysis by discussing the implications of the findings for Vanguard's digital strategy. Provide recommendations based on the results and suggest any future steps or experiments.
-
-## References
-
-List any references or sources used during the project, including data sources, articles, and documentation.
