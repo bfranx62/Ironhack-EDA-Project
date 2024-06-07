@@ -7,8 +7,6 @@ by The Cubers Group
 
 ## Project Overview
 
-### Context
-
 You are a newly employed data analyst in the Customer Experience (CX) team at Vanguard, a US-based investment management company. Your first task involves analyzing the results of a digital experiment conducted by the team.
 
 ### The Digital Challenge
@@ -27,6 +25,7 @@ The experiment involved modifying the UI and introducing in-context prompts to o
 4. [Results](#results)
 5. [Tableau Public Workbook](#tableau-public-workbook)
 6. [Google Slides Presentation](#google-slides-presentation)
+7. [Trello Board](*trello-board)
 
 ## Introduction
 
@@ -82,12 +81,12 @@ With the Chi squared test we gained the following insights.
 
 The interactive visualizations created for this analysis can be accessed on Tableau Public. These visualizations provide detailed insights into the experiment's results.
 
-[View the Tableau Public Workbook](Post_Tableau_Link_Here)
+[View the Tableau Public Workbook](https://public.tableau.com/views/Ironhack-EDA-Project/DropClientsbyInvestmentBalance?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
 
 ## Google Slides Presentation
 
-A comprehensive presentation summarizing the project, methodology, findings, and recommendations is available on Google Slides.
-
 [View the Google Slides Presentation](https://docs.google.com/presentation/d/1NTZg2U_izvyAM4VOe43xKWZlGpBYQjS60Ru1KHkG1Ic/edit?usp=sharing)
 
+## Trello Board
 
+[View our Trello Kanban board](https://trello.com/invite/b/SkqsBcVP/ATTIa1b54c4c63ebf9afa82c3347aabb234983C0EB9D/the-red-musers)
