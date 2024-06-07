@@ -155,9 +155,9 @@ This suggests that the changes that are being tested may interfere with investme
 
 When examining the drop rate by age group, our findings were more interesting and less conclusive. Overall, it seems that the longer a client has been with Vanguard, the less likely they were to drop, or to not complete the online process a single time. This makes sense, as the people who have been with Vanguard the longest have the most money invested with them, and therefore have the greatest interest in monitoring the status of their investments (likely because they are cashing them out).
 
-# In the control group, we saw that, aside from those clients who had been with the company for between 40 and 50 years, all groups of clients had proportionate drop rates within 10% of what was expected. In the test group, we saw that the drop rate among clients who had been with the company for 50 years or longer fell to 70% less than expected, while the drop rate for the 40 - 50-year tenure group swung from 20% less than expected to occurring almost 25% more than expected. 
+In the control group, we saw that, aside from those clients who had been with the company for between 40 and 50 years, all groups of clients had proportionate drop rates within 10% of what was expected. In the test group, we saw that the drop rate among clients who had been with the company for 50 years or longer fell to 70% less than expected, while the drop rate for the 40 - 50-year tenure group swung from 20% less than expected to occurring almost 25% more than expected. 
 
-# These findings suggest the presence of another confounding variable that we are not sure about. 
+These findings suggest the presence of another confounding variable that we are not sure about. 
 
 
 # Balance
@@ -187,7 +187,9 @@ Removing outliers doesn't fix variance, but that's okay because a two-sample t-t
 - KPI - completion rate - test group completed the process more frequently than control - keep changes
 - KPI - bounce rate - test group had a lower bounce rate than control - keep changes
 - KPI - drop rate - no difference between test and control group
-- ANOVA tests - unequal variance made ANOVA tests irrelevant for several variables
+- 
+ANOVA tests - unequal variance made ANOVA tests irrelevant for several variables
+  
 chi-square:
   - tenure step: The test group showed noticeable improvements for completion rates in clients with longer tenure
       - calls v. drop: changes made seemed to make it easier for people who call more frequently to complete the online process at least once
