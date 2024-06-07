@@ -137,6 +137,29 @@ Based on this chi-square test, we fail to reject our null hypothesis and conclud
 
 However, using the drop-off rate, we can continue to test whether or not age, tenure, gender, or any other demographic factors affect or impact the drop-off rate, either in general or with each step. 
 
+In comparing the test group with the control group, we find that seniors failed to complete the process far less frequently in the test group. This signals that whatever changes were made helped clients who have been with the company for more than 50 years to better complete the process. If helping seniors complete the online process is a desirable outcome, the changes made should be kept. It should be noted, however, that there are very few people who have been with the company for that long, so the results may not be entirely accurate. However, if Vanguard expects to have more customers retain their relationship with the company for that duration of time, the changes made may be helpful for those future clients. 
+
+# CHI Squared Tests
+
+### tenure_stp_dict
+
+Another thing to note is that in the test group, no one with a tenure of 50 years or more completed steps 2 or 3 - so it could be that the changes made to the online process allowed for an expedited process or something that made it easier for those customers. There's no telling without an explanation of what the online process does or looks like. 
+
+### calls_drp_dict.items
+
+This tells us that, unsurprisingly, in all groups, people who called zero times failed to complete the online process disproportionately more frequently than people who called more frequently. However, we noticed that in the test group, people who called zero times failed to complete the online process failed EVEN MORE frequently than their counterparts in the control group, and people who called six times failed to complete it EVEN LESS frequently than their counterparts in the control group. In the control group, customers who didn't call at least three times every six months were more likely to drop. In the test group, however, customers only needed to make two calls before being categorized as less likely to drop. 
+
+This suggests that the changes that are being tested may interfere with investment activity for those clients who don't make regular calls to Vanguard. This may be desirable if Vanguard wishes to regularly touch base with their customers, but if they are looking to create a more user-friendly experience, then the changes may need to be discontinued. 
+
+### tenure_drp_dict
+
+When examining the drop rate by age group, our findings were more interesting and less conclusive. Overall, it seems that the longer a client has been with Vanguard, the less likely they were to drop, or to not complete the online process a single time. This makes sense, as the people who have been with Vanguard the longest have the most money invested with them, and therefore have the greatest interest in monitoring the status of their investments (likely because they are cashing them out).
+
+# In the control group, we saw that, aside from those clients who had been with the company for between 40 and 50 years, all groups of clients had proportionate drop rates within 10% of what was expected. In the test group, we saw that the drop rate among clients who had been with the company for 50 years or longer fell to 70% less than expected, while the drop rate for the 40 - 50-year tenure group swung from 20% less than expected to occurring almost 25% more than expected. 
+
+# These findings suggest the presence of another confounding variable that we are not sure about. 
+
+
 # Balance
 
 We start by testing whether one Gender trends to carry a higher balance than the other. 
@@ -145,9 +168,34 @@ We start by testing whether one Gender trends to carry a higher balance than the
 - H0: mu_bal male = mu_bal female
 - H1: mu_bal male != mu_bal female
 
-First, we run a Levene test to test equal variance. We got a low p-value
+First, we run a Levene test to test equal variance. We got a low p-value which means they don't have equal variance, so we need to set that to false for our ttest. 
 
 <img width="440" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/65853169-8f39-4fb6-bb73-ffebd2e632f4">
+
+Removing outliers doesn't fix variance, but that's okay because a two-sample t-test can handle that, we just need to specify that the variance in the two is not equal. 
+
+### drop rate v. balance
+
+- H0 - there is no difference in the average balance between the people who dropped and those who did not. 
+- HA - there is a difference in the average balance between the two groups. 
+
+- H0 - ave balance for droppers = ave balance for not-droppers
+- HA - ave balance for droppers != ave balance for not-droppers
+
+# Summarize
+
+- KPI - completion rate - test group completed the process more frequently than control - keep changes
+- KPI - bounce rate - test group had a lower bounce rate than control - keep changes
+- KPI - drop rate - no difference between test and control group
+- ANOVA tests - unequal variance made ANOVA tests irrelevant for several variables
+chi-square:
+  - tenure step: The test group showed noticeable improvements for completion rates in clients with longer tenure
+      - calls v. drop: changes made seemed to make it easier for people who call more frequently to complete the online process at least once
+    -  tenure v. drop: results ambiguous
+two-sample t-tests:
+    - gender v. bal: male clients have more invested
+    - drop v. bal: clients who did not drop have more invested
+
 
 # MAJOR OBSTACLES 
 
