@@ -7,6 +7,7 @@ Ironhack Weeks 5-6 Exploratory Data Analysis Project
 
 [Trello](https://trello.com/invite/b/SkqsBcVP/ATTIa1b54c4c63ebf9afa82c3347aabb234983C0EB9D/the-red-musers)
 [Presentation](https://docs.google.com/presentation/d/1NTZg2U_izvyAM4VOe43xKWZlGpBYQjS60Ru1KHkG1Ic/edit?usp=sharing)
+[Tableau](https://public.tableau.com/views/Ironhack-EDA-Project/DropClientsbyInvestmentBalance?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
 
 # Who are the primary clients who use this online process?
 
