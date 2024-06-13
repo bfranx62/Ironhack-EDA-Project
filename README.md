@@ -1,214 +1,92 @@
-# Ironhack-EDA-Project
-### By Alejandro Figueria Ramirez, Bryan Frank, Dylan Sedeno 
+# Vanguard A/B Testing EDA Project
+by The Cubers Group
 
-# Description 
+- Alejandro Figueroa
+- Bryan Frank
+- Dylan Sedeno
 
-Ironhack Weeks 5-6 Exploratory Data Analysis Project
+## Project Overview
 
-[Trello](https://trello.com/invite/b/SkqsBcVP/ATTIa1b54c4c63ebf9afa82c3347aabb234983C0EB9D/the-red-musers)
-[Presentation](https://docs.google.com/presentation/d/1NTZg2U_izvyAM4VOe43xKWZlGpBYQjS60Ru1KHkG1Ic/edit?usp=sharing)
-[Tableau](https://public.tableau.com/views/Ironhack-EDA-Project/DropClientsbyInvestmentBalance?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
+You are a newly employed data analyst in the Customer Experience (CX) team at Vanguard, a US-based investment management company. Your first task involves analyzing the results of a digital experiment conducted by the team.
 
-# Who are the primary clients who use this online process?
+### The Digital Challenge
 
-From examining the logons_6_mnth column we see that only clients who logged in at least once in the last six months are considered clients at all.
- 
-The mean number of logins is 5.57 times a month, with the median being 5, so on average a customer will log on to the service just under once a month. 
+In the ever-evolving digital world, Vanguard aimed to enhance the user experience for their clients. They hypothesized that a more intuitive and modern User Interface (UI), along with timely in-context prompts (cues, messages, hints, or instructions provided to users directly within the context of their current task or action), could streamline the online process and encourage more clients to complete it.
 
-<img width="476" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/d275ff81-4b43-48df-9c4d-19535c83a6b2">
+### The Experiment
 
-A glance at a histogram shows that there isn't an even distribution of user logins, so that won't help us determine what a "typical" customer login rate looks like. 
+The experiment involved modifying the UI and introducing in-context prompts to observe whether these changes would lead to higher completion rates among clients.
 
-Information was pulled on those customers who log in at least once every other month, or 3 times every 6 months. It seems from the histogram that customers who log in less frequently are typical.
+## Table of Contents
 
-When comparing the subset with the whole data frame, it seems that there isn't much difference between the two when looking at regular descriptive statistics. This means that the original can be used without much issue. 
+1. [Introduction](#introduction)
+2. [Data Description](#data-description)
+3. [Analysis](#analysis)
+4. [Results](#results)
+5. [Tableau Public Workbook](#tableau-public-workbook)
+6. [Google Slides Presentation](#google-slides-presentation)
+7. [Trello Board](*trello-board)
 
-## Going solely on the descriptive statistics, it seems that typical* clients are as follows.
+## Introduction
 
-- They have been with the company for between 6 and 18 years, or between 70 and 220 months. 
-- They are typically between 30 and 60 years old. 
-- They have up to 3 accounts. 
-- They carry a balance with the company of up to 450,000.
-- They've made between 1 and 5 calls in the last six months.
-- They've logged on between 2 and 8 times. 
+In this project, we aim to analyze the impact of UI improvements and in-context prompts on client behavior. The analysis is conducted using various data analytics techniques, with visualizations created in Tableau to present the findings effectively.
 
-This was determined by looking at the means and standard deviations. 
+## Data Description
 
+The three main datasets used for the project were:
+  - Client Profiles (df_final_demo): Contains demographic data on Vanguard clients
+  - Digital Footprints (df_final_web_data): Trace of client interactions with Vanguard’s online process. 
+  - Experiment Roster (df_final_experiments_clients): List that reveals the clients that were part of the grand experiment.
 
-## Are clients older or younger? 
 
-To answer this question client ages must be analyzed, sorting the ages to age ranges will help to answer these questions.
+## Analysis
 
-<img width="188" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/6cdd7849-0c42-40eb-a868-d221583901f2">
+The data cleaning process was straightforward and comprised of the following tasks:
+  - Disregarded clients who did not participate in the experiment by dropping nulls in the client profiles dataframe.
+  - Removed outliers for better data visualization and analysis for client balance information.
+  - Dropped unnecessary columns, renamed columns, and maintained naming conventions. 
+  - Performed merging between:
+    - Client Profiles and Digital Footprints on Client ID column (demographic analysis)
+    - Experiment Roster and Digital Footprints on Client ID column (KPI analysis)
+   
+Our target KPI’s were:
+  - Completion Rate
+  - Bounce Rate: Frequency with which clients failed to progress past the initial step in the online process.
+  - Drop Rate: Indicates whether clients forfeited the online process prior to reaching the final confirmation step.
 
-<img width="398" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/c2a2fc3e-afe7-4fbe-85a9-a76c5e59ad42">
+In addition, we wanted to analyze how specific variables affect the drop rate such as:
+  - The number of calls made in the last six months 
+  - Client tenure
+  - Client investment balance
+    
+Finally, we were interested in the gender wage gap discourse, so we opted to investigate if gender affects the investment balance.
 
-- From this analysis, we can see that the majority of our clients have had their accounts between the years of 20 and 30. 
 
-- The age range that has the most clients is from 50. the overall client range is from 20 - 60 with outliers in the ranges of 10, 70, 80, and 90
+## Results
 
-# Visualizations
+From testing completion, bounce, and drop rates we see that:
+  - The Test group completed the process more than control
+  - Test group had the lower bounce rate 
+  - And there was was no difference when it came to drop rate
 
-## Categorical Values 
+With the Chi squared test we gained the following insights.
+  - Test group clients having longer tenure with the company had a noticeable raise in completion 
+  - Changes made allowed clients who called support at least once to complete the online process 
+  - The two-sample t-test showed that:
+  - Male clients have more invested than any other client 
+  - And that clients that did not drop have more invested in general
 
-Variation with process steps as hue:
 
-<img width="446" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/c1a7e209-bdb0-42f5-b023-f9c787b79cae">
+## Tableau Public Workbook
 
-Gender Frequency Table:
+The interactive visualizations created for this analysis can be accessed on Tableau Public. These visualizations provide detailed insights into the experiment's results.
 
-<img width="428" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/6577e29a-1c34-4513-a42d-f83260cfd98f">
+[View the Tableau Public Workbook](https://public.tableau.com/views/Ironhack-EDA-Project/DropClientsbyInvestmentBalance?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link)
 
-Histogram of client's age:
+## Google Slides Presentation
 
-<img width="443" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/912d7279-8541-40c2-8e32-51ee95991788">
+[View the Google Slides Presentation](https://docs.google.com/presentation/d/1NTZg2U_izvyAM4VOe43xKWZlGpBYQjS60Ru1KHkG1Ic/edit?usp=sharing)
 
-Box plot of client's Age:
+## Trello Board
 
-<img width="427" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/25c45b68-db45-44c4-9b0b-827b5841415e">
-
-histo plot of client tenure year: 
-
-<img width="440" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/9e17516c-ada9-49d5-818c-5f5375d1d2fe">
-
-Box plot of client tenure year:
-
-<img width="408" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/7df9d8e8-3416-49d4-b14b-896ae4244193">
-
-histo plot of client tenure month: 
-
-<img width="445" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/fd1f5673-d820-49a9-83ba-b999b4b28c3f">
-
-Box plot of client tenure month:
-
-<img width="416" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/1b8160f7-00fd-4838-80f2-905ca2d429ba">
-
-# KPI Analysis
-
-## Completion Rate
-
-One of the main KPIs we decided to investigate was whether or not a statistically significant greater number of clients were able to finish the entire website process in the test or control group. If more people in the control group are able to complete the process in the test group, then the new version of the website should be maintained if completion of the process is desirable. 
-
-As we examined the data we found that many Vanguard clients visited the site and/or worked through the process multiple times. Because of that, we decided to group the visits by visit ID, so we could see the number of *visits* in which a client made it to a certain step. We also wanted to know how far clients progressed through the website process in each visit, so we created a subset that only contains the most recent step a client was on by visit id. In doing so, we have instances in which a process is confirmed multiple times despite a client only reaching that step once.
-
-<img width="449" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/fddef646-7784-42d6-9fb6-d5010e18e96d">
-
-A brief comparison of the results seems to indicate that more clients are able to move from step 3 to confirmation but we want to know if those results are statistically significant or just happenstance. 
-
-In both categories, we had a total of 41,415 clients reached the confirmation step. By just looking at the proportions, we see that 45.77% of clients in the test group made it to the confirmation stage, whereas only 36.92% of the control group made it that far. 
-
-In order to test whether these results are statistically significant, we will run a chi-square test, which will use the control group's rate of reaching the confirmation step as the expected value, and test whether or not the differing results in the test group could be attributed to random chance. 
-
-#### In this case, our hypotheses are as follows:
-
-- H0: There is no difference in the confirmation rates between the control and test groups.
-- HA: There is a difference in the confirmation rates between the groups. 
-
-Our null hypothesis is that the changes made to the website were irrelevant, and the differing confirmation rate is just coincidental. Our alternative hypothesis is that the changes made a difference in the confirmation rate. 
-
-Because the p_value is so low, that H0 gotta go. In other words, the p_value indicates that there is virtually no possibility that the differing confirmation rate can be attributed to random chance, so we are forced to conclude that the changes made to the website did statistically impact the rate at which customers complete the online process. If this is desirable, the changes made should be incorporated for all customer interactions going forward. 
-
-## Bounce Rate
-
-The next KPI we decided to test was bounce rate, which is the frequency with which clients visited the site and did not progress past the initial step of the online process. This failure to progress past the initial step can indicate one of two things. The first indication it could give is that the process being presented to the client or visitor is not driving or pushing them to the next step, which would suggest that the layout of the site or process should be adjusted in such a way as to direct them further through the process. The bounce rate could also mean that there is some sort of error or disconnect that needs to be corrected. 
-
-Knowing whether there is a difference in bounce rates between the original site setup and the setup being tested will help us know whether the setup being tested works more efficiently at moving customers through the online process. If the process being tested is more effective in that way, it should be continued. 
-
-To test that difference, we will run another chi-square test to examine the difference (and its statistical significance) between the test and control group. In order to do that, we first need to get a list of clients/visitors who never progressed past the initial phase of the online process.
-
-After collecting a list of visit IDs in which the visitor "bounced," we can use that list to create a new column in our data frame marking those visits that resulted in a "bounce." This indicator column will be treated as a boolean and tested against visit variation, which indicates whether a client was experiencing the test or control process in that visit.  
-
-By just looking at the value counts, we see that about 1/6th, or 12.5% of visits resulted in a bounce, which is fairly alarming. 
-
-When comparing the proportion of bounces in the control versus the test group, we see that the control group experienced a bounce roughly 24% of the time, whereas the test group only experienced bounces 14% of the time. That's a sizeable difference. 
-
-After running a chi-square test, we see that the p-value is incredibly low, leading us to reject our null hypothesis again and conclude that the changes made and tested by the test group have a noticeable and statistically significant impact on bounce rate. If a lower bounce rate is desirable, the updated process should probably replace the current one. 
-
-## Dropoff Rate
-
-This KPI compares whether clients in one of the groups abandoned the process at any steps besides the initial more frequently and whether there is a statistically significant difference in drop-off rates between the test and control groups. If the drop-off rate is higher in the test group, it could signal that the changes made to the process have not simplified the process.
-
-By starting with sorting the data frame, we can more simply pull out the information we need. The cell below sorts the data frame by client ID, visit ID, and date-time, all ascending. 
-
-After sorting the data, we identify the unique process steps that each client reached. Any client that did not make it to the confirm step at least once will be considered a "dropper."
-
-The code above tells us how many clients in each group reached each step at least once. As one would expect, in each group we see that the start group is the largest, and then fewer and fewer clients made it to each succeeding step. The confirm values show how many clients in either group ever made it to the confirm step. The difference between the start and confirm steps in each group tells us how many clients in each group should be considered "droppers." There were 7,732 clients in the control group who never made it to the confirmation step, and there were 7,827 clients in the test group who didn't. That isn't a large difference, but to know if it's significant, we need to test for it. 
-
-Based on this chi-square test, we fail to reject our null hypothesis and conclude that, when it comes to drop-off rates by step, there is no difference between the test group and the control group. Therefore, while the test we ran above shows that there is a significantly different rate of completion in the test group, no individual step's drop-off rate was significantly impacted by the changes made. 
-
-However, using the drop-off rate, we can continue to test whether or not age, tenure, gender, or any other demographic factors affect or impact the drop-off rate, either in general or with each step. 
-
-In comparing the test group with the control group, we find that seniors failed to complete the process far less frequently in the test group. This signals that whatever changes were made helped clients who have been with the company for more than 50 years to better complete the process. If helping seniors complete the online process is a desirable outcome, the changes made should be kept. It should be noted, however, that there are very few people who have been with the company for that long, so the results may not be entirely accurate. However, if Vanguard expects to have more customers retain their relationship with the company for that duration of time, the changes made may be helpful for those future clients. 
-
-# CHI Squared Tests
-
-### tenure_stp_dict
-
-Another thing to note is that in the test group, no one with a tenure of 50 years or more completed steps 2 or 3 - so it could be that the changes made to the online process allowed for an expedited process or something that made it easier for those customers. There's no telling without an explanation of what the online process does or looks like. 
-
-### calls_drp_dict.items
-
-This tells us that, unsurprisingly, in all groups, people who called zero times failed to complete the online process disproportionately more frequently than people who called more frequently. However, we noticed that in the test group, people who called zero times failed to complete the online process failed EVEN MORE frequently than their counterparts in the control group, and people who called six times failed to complete it EVEN LESS frequently than their counterparts in the control group. In the control group, customers who didn't call at least three times every six months were more likely to drop. In the test group, however, customers only needed to make two calls before being categorized as less likely to drop. 
-
-This suggests that the changes that are being tested may interfere with investment activity for those clients who don't make regular calls to Vanguard. This may be desirable if Vanguard wishes to regularly touch base with their customers, but if they are looking to create a more user-friendly experience, then the changes may need to be discontinued. 
-
-### tenure_drp_dict
-
-When examining the drop rate by age group, our findings were more interesting and less conclusive. Overall, it seems that the longer a client has been with Vanguard, the less likely they were to drop, or to not complete the online process a single time. This makes sense, as the people who have been with Vanguard the longest have the most money invested with them, and therefore have the greatest interest in monitoring the status of their investments (likely because they are cashing them out).
-
-In the control group, we saw that, aside from those clients who had been with the company for between 40 and 50 years, all groups of clients had proportionate drop rates within 10% of what was expected. In the test group, we saw that the drop rate among clients who had been with the company for 50 years or longer fell to 70% less than expected, while the drop rate for the 40 - 50-year tenure group swung from 20% less than expected to occurring almost 25% more than expected. 
-
-These findings suggest the presence of another confounding variable that we are not sure about. 
-
-
-# Balance
-
-We start by testing whether one Gender trends to carry a higher balance than the other. 
-
-#### Hypothesis 
-- H0: mu_bal male = mu_bal female
-- H1: mu_bal male != mu_bal female
-
-First, we run a Levene test to test equal variance. We got a low p-value which means they don't have equal variance, so we need to set that to false for our ttest. 
-
-<img width="440" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/65853169-8f39-4fb6-bb73-ffebd2e632f4">
-
-Removing outliers doesn't fix variance, but that's okay because a two-sample t-test can handle that, we just need to specify that the variance in the two is not equal. 
-
-### drop rate v. balance
-
-- H0 - there is no difference in the average balance between the people who dropped and those who did not. 
-- HA - there is a difference in the average balance between the two groups. 
-
-- H0 - ave balance for droppers = ave balance for not-droppers
-- HA - ave balance for droppers != ave balance for not-droppers
-
-# Summarize
-
-- KPI - completion rate - test group completed the process more frequently than control - keep changes
-- KPI - bounce rate - test group had a lower bounce rate than control - keep changes
-- KPI - drop rate - no difference between test and control group
-- 
-ANOVA tests - unequal variance made ANOVA tests irrelevant for several variables
-  
-chi-square:
-  - tenure step: The test group showed noticeable improvements for completion rates in clients with longer tenure
-      - calls v. drop: changes made seemed to make it easier for people who call more frequently to complete the online process at least once
-    -  tenure v. drop: results ambiguous
-two-sample t-tests:
-    - gender v. bal: male clients have more invested
-    - drop v. bal: clients who did not drop have more invested
-
-
-# MAJOR OBSTACLES 
-
-## CHI Square Test Function Problems
-
-When doing Chi2 tables we had an issue with displaying the chart for c_tenure_drp_ct with our function. it would display the charts for the other charts but not the control data. To combat this a manual chi2 analysis was done on the group
-
-### The Solution
-
-<img width="290" alt="image" src="https://github.com/DmanDSR/Ironhack-EDA-Project/assets/48893423/3747ab1d-fd71-4d87-bd07-4ef218c42c27">
-
-
-
+[View our Trello Kanban board](https://trello.com/invite/b/SkqsBcVP/ATTIa1b54c4c63ebf9afa82c3347aabb234983C0EB9D/the-red-musers)
